@@ -1,0 +1,12 @@
+<!-- <app-card></app-card> -->
+<div class="card card--complete card--primary">
+  <div class="card__title">
+    <div class="card__icon">
+      <button class="button button__add" (click)="toggleCreateItem()">
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+    <h1>Add new weekly pin</h1>
+  </div>
+</div>
+<app-create-item *ngIf="showCreateItem"></app-create-item>

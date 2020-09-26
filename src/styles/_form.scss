@@ -1,0 +1,18 @@
+.form {
+  i {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0.8em;
+    cursor: pointer;
+    &:hover{
+        background: rgb(127 127 127 / 0.1);
+        border-radius: 10px;
+    }
+  }
+  input{
+      padding: 0.5em;
+      border-radius: 5px;
+      border: 2px solid black;
+  }
+}

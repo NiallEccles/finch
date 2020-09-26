@@ -1,0 +1,12 @@
+<div class="overlay" (click)="closeOverlay()">
+  <div class="inner" (click)="stopEvent($event)">
+    <form class="form">
+      <i class="material-icons" (click)="closeOverlay()">close</i>
+      <h2>Add new</h2>
+      <label for="title">Title</label><br />
+      <input type="text" id="title" name="title" /><br />
+      <label for="description">Description</label><br />
+      <input type="text" id="description" name="description" /><br />
+    </form>
+  </div>
+</div>
