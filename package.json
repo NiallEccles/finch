@@ -2,9 +2,10 @@
   "name": "finch",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/NiallEccles/finch/issues"
   },
-  "homepage": "https://github.com/NiallEccles/finch#readme"
+  "homepage": "https://github.com/NiallEccles/finch#readme",
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-reloader": "^1.1.0"
+  },
+  "dependencies": {
+    "electron-store": "^6.0.1",
+    "electron-window-state": "^5.0.3"
+  }
 }

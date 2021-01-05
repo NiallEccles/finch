@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("./assets/fonts/roboto-regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("./assets/fonts/roboto-bold.woff") format("woff");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #f66f15;
+  color: #fff8f1;
+  width: 12em;
+  height: 100%;
+  position: fixed;
+  padding: 2em;
+  font-family: "Roboto Regular";
+}
+
+nav h1,
+nav h2,
+nav h3 {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Bold";
+}
+
+.nav-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-header-trailing {
+  display: flex;
+}
+
+.nav-content {
+  margin-left: 0.5em;
+  margin-top: 3em;
+}
+
+.nav-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.nav-header-trailing button:first-child {
+  margin-right: 0.1em;
+}
+
+.nav-header-trailing button,
+.nav-content-header button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  background: none;
+  padding: 0.2em;
+  border: none;
+  border-radius: 8em;
+  transition: background 150ms ease-in-out;
+}
+
+.nav-header-trailing button:hover,
+.nav-content-header button:hover {
+  cursor: pointer;
+  background: #FD903E;
+  transition: background 150ms ease-in-out;
+}
+
+.nav-header button img,
+.nav-content-header button img {
+  width: 1em;
+  /* fill: #fff8f1; */
+}
+
+.nav-content h2 {
+  font-family: "Roboto Regular";
+  font-size: 1em;
+}
