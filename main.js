@@ -1,9 +1,8 @@
 const { app, BrowserWindow } = require("electron");
 const windowStateKeeper = require("electron-window-state");
-const Store = require('electron-store');
+const Store = require("electron-store");
 let win;
 const store = new Store();
-
 
 try {
   require("electron-reloader")(module);
@@ -38,11 +37,10 @@ app.on("ready", function () {
   // and restore the maximized or full screen state
   mainWindowState.manage(win);
 
-  store.set('unicorn', '🦄');
-  
-
-  console.log(store.get('unicorn'));
-  console.log(app.getPath('userData'));
+  //check and seed preferences here
+  if (!store.get("preferences")) {
+    store.set("preferences", { notifications: true });
+  }
 });
 
 app.on("window-all-closed", () => {
