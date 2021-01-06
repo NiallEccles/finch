@@ -11,12 +11,12 @@
       <div class="nav-header">
         <h1>Finch</h1>
         <div class="nav-header-trailing">
-            <button>
-                <img src="./assets/icons/bell-outline.svg" alt="" />
-            </button>
-            <button>
-                <img src="./assets/icons/settings-outline.svg" alt="" />
-            </button>
+          <button>
+            <img src="./assets/icons/bell-outline.svg" alt="notifications" />
+          </button>
+          <button id="settings">
+            <img src="./assets/icons/settings-outline.svg" alt="settings" />
+          </button>
         </div>
       </div>
       <div class="nav-content">
@@ -28,5 +28,23 @@
         </div>
       </div>
     </nav>
+
+    <div id="overlay">
+      <div class="overlay-content">
+        <div class="overlay-header">
+          <h3>Settings</h3>
+          <button id="close">
+            <img src="./assets//icons/close-outline.svg" alt="close" />
+          </button>
+        </div>
+        <ul>
+          <li>
+            <span>Notifications</span>
+            <span>toggle</span>
+          </li>
+        </ul>
+      </div>
+    </div>
   </body>
+  <script src="scripts/index.js"></script>
 </html>

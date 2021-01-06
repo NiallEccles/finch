@@ -74,7 +74,7 @@ nav h3 {
 .nav-header-trailing button:hover,
 .nav-content-header button:hover {
   cursor: pointer;
-  background: #FD903E;
+  background: #fd903e;
   transition: background 150ms ease-in-out;
 }
 
@@ -87,4 +87,61 @@ nav h3 {
 .nav-content h2 {
   font-family: "Roboto Regular";
   font-size: 1em;
+}
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(33, 33, 33, 0.6);
+  padding: 3em 0;
+}
+
+.overlay-content {
+  width: 30em;
+  background: white;
+  padding: 1em;
+  margin: auto;
+}
+
+#overlay .overlay-content .overlay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Roboto Bold";
+}
+
+#overlay .overlay-content .overlay-header #close:hover {
+  cursor: pointer;
+  background: #fd903e;
+  transition: background 150ms ease-in-out;
+}
+
+#overlay .overlay-content .overlay-header #close img {
+  width: 1em;
+}
+
+#overlay #close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  background: none;
+  padding: 0.2em;
+  border: none;
+  border-radius: 8em;
+  transition: background 150ms ease-in-out;
+}
+
+.overlay-content ul {
+  font-family: "Roboto Regular";
+  padding: 0;
+}
+
+.overlay-content ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
