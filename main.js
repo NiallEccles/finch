@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require("electron");
 const windowStateKeeper = require("electron-window-state");
 const Store = require("electron-store");
+const { ipcMain } = require("electron");
 let win;
 const store = new Store();
 
@@ -53,4 +54,19 @@ app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
+});
+
+// ipcMain.on('asynchronous-message', (event, arg) => {
+//   console.log(arg) // prints "ping"
+//   event.reply('asynchronous-reply', 'pong')
+// })
+
+ipcMain.on("synchronous-message", (event, arg) => {
+  if (arg.settings) {
+    console.log(arg.settings);
+    if (arg.settings.notifications) {
+      console.log("gotta update notifications");
+    }
+  }
+  event.returnValue = "pong";
 });
