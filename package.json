@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "concurrently --kill-others \"electron .\" \"rollup -c -w\""
   },
   "repository": {
     "type": "git",
@@ -19,8 +20,10 @@
   },
   "homepage": "https://github.com/NiallEccles/finch#readme",
   "devDependencies": {
+    "concurrently": "^5.3.0",
     "electron": "^11.1.1",
-    "electron-reloader": "^1.1.0"
+    "electron-reloader": "^1.1.0",
+    "rollup": "^2.36.1"
   },
   "dependencies": {
     "electron-store": "^6.0.1",
