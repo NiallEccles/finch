@@ -1,0 +1,46 @@
+.note {
+  padding: 2em;
+  margin: 1em;
+  border-radius: 1em;
+  position: relative;
+}
+
+.note.note--primary {
+  background: var(--tertiary-bg-colour);
+}
+
+.note.note--secondary {
+  background: var(--accent-bg-colour);
+}
+
+.note-title {
+  font-size: 1.3em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+.note-text {
+  color: var(--tertiary-text-colour);
+}
+
+.note.note--secondary .note-text {
+  color: var(--primary-text-colour);
+}
+
+.note::after {
+  content: "\A";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: all 1s;
+  -webkit-transition: all 300ms;
+  border-radius: 1em;
+}
+
+.note:hover:after {
+  opacity: 1;
+}

@@ -1,0 +1,24 @@
+@import './styles/reset.css';
+@import './styles/note.css';
+@import './styles/grid.css';
+@import './styles/nav.css';
+
+:root {
+  --primary-bg-colour: #e2dad1;
+  --secondary-bg-colour: #000000;
+  --tertiary-bg-colour: #f1f1f1;
+  --accent-bg-colour: #fb6600;
+
+  --primary-text-colour: #000000;
+  --secondary-text-colour: #e2dad1;
+  --tertiary-text-colour: #464646;
+  --accent-text-colour: #fb6600;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--primary-bg-color);
+  color: var(--primary-text-colour);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}

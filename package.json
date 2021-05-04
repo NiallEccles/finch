@@ -1,58 +1,24 @@
 {
   "name": "finch",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:prod": "cross-env NODE_ENV=production ng build --prod"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "snowpack dev"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~11.2.10",
-    "@angular/common": "~11.2.10",
-    "@angular/compiler": "~11.2.10",
-    "@angular/core": "~11.2.10",
-    "@angular/forms": "~11.2.10",
-    "@angular/platform-browser": "~11.2.10",
-    "@angular/platform-browser-dynamic": "~11.2.10",
-    "@angular/router": "~11.2.10",
-    "rxjs": "~6.5.5",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.10.3"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NiallEccles/finch.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NiallEccles/finch/issues"
+  },
+  "homepage": "https://github.com/NiallEccles/finch#readme",
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.8",
-    "@angular/cli": "~11.2.8",
-    "@angular/compiler-cli": "~11.2.10",
-    "@tailwindcss/forms": "latest",
-    "@tailwindcss/typography": "latest",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "autoprefixer": "^10.2.4",
-    "codelyzer": "^6.0.0",
-    "cross-env": "^7.0.3",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.3.2",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~3.3.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "ngx-build-plus": "^11.0.0",
-    "ngx-tailwind": "^2.1.0",
-    "postcss": "^8.2.6",
-    "postcss-import": "^14.0.0",
-    "postcss-loader": "^4.2.0",
-    "postcss-scss": "^3.0.4",
-    "protractor": "~7.0.0",
-    "tailwindcss": "^2.0.3",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.1.5"
+    "snowpack": "^3.3.7"
   }
 }

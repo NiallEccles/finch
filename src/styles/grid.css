@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 15em 35em 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Nav Notes Viewer Viewer"
+    "Nav Notes Viewer Viewer"
+    "Nav Notes Viewer Viewer";
+    height: calc(100vh - 2em);
+}
+.Nav {
+  grid-area: Nav;
+  background: var(--tertiary-bg-colour);
+}
+.Notes {
+  grid-area: Notes;
+}
+.Viewer {
+  grid-area: Viewer;
+}
+
+@media only screen and (max-width: 800px) {
+  .grid-container {
+    grid-template-columns: 7.5em 25em 1fr 1fr;
+  }
+}
