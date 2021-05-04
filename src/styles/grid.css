@@ -1,23 +1,57 @@
 .grid-container {
   display: grid;
-  grid-template-columns: 15em 35em 1fr 1fr;
+  grid-template-columns: 15em 30em 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-template-areas:
     "Nav Notes Viewer Viewer"
     "Nav Notes Viewer Viewer"
     "Nav Notes Viewer Viewer";
-    height: calc(100vh - 2em);
+  height: calc(100vh - 2em);
 }
 .Nav {
   grid-area: Nav;
   background: var(--tertiary-bg-colour);
+  position: relative;
 }
 .Notes {
   grid-area: Notes;
+  margin: 1em;
 }
 .Viewer {
   grid-area: Viewer;
+}
+
+.grid-container.min {
+  grid-template-columns: 3.5em 35em 1fr 1fr;
+  transition: all 300ms ease-in-out;
+}
+
+.grid-container.min .workspaces h3,
+.grid-container.min button span,
+.grid-container .workspaces img {
+  display: none;
+}
+
+.grid-container .workspaces h3,
+.grid-container button span,
+.grid-container.min button img,
+.grid-container.min .workspaces img {
+  display: block;
+}
+
+.grid-container.min .Nav .controls span,
+.grid-container.min .Nav .workspace span {
+  display: none;
+}
+
+.grid-container .toggle img{
+  transition: all 300ms ease-in-out;
+}
+
+.grid-container.min .toggle img{
+  transform: rotate(180deg);
+  transition: all 300ms ease-in-out;
 }
 
 @media only screen and (max-width: 800px) {

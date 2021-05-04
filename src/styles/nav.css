@@ -12,12 +12,20 @@ nav ol li {
     align-items: center;
 }
 
+nav ol li:hover{
+    opacity: 0.6;
+}
+
 nav ol li img, nav button img{
     margin-right: 1em;
 }
 
-nav h3{
+.workspaces{
     margin: 2em 1em 1em 0em;
+}
+
+.workspaces img {
+    opacity: 0.5;
 }
 
 .workspace{
@@ -32,5 +40,28 @@ nav button{
     flex-direction: row;
     align-items: center;
     font-size: 1em;
+    padding: 0;
 }
 
+nav .title{
+    margin: 1em 0;
+}
+
+.toggle{
+    border: none;
+    position: absolute;
+    top: 4.5%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    border-radius: 2em;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle img{
+    width: 1.4em;
+}

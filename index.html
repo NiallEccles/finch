@@ -10,32 +10,42 @@
   <body>
     <div class="grid-container">
       <div class="Nav">
+        <button class="toggle" onclick="toggleNav()">
+          <img src="./src/assets/chevron_right_black.svg" alt="" />
+        </button>
         <nav>
+          <h2 class="title">Finch</h2>
           <ol class="controls">
             <li>
-              <img src="./src/assets/article_black.svg" alt="" />Templates
+              <img src="./src/assets/article_black.svg" alt="" />
+              <span>Templates</span>
             </li>
             <li>
               <img src="./src/assets/favorite_black.svg" alt="" />
-              Favourites
+              <span>Favourites</span>
             </li>
             <li>
               <img src="./src/assets/delete_black.svg" alt="" />
-              Trash
+              <span>Trash</span>
             </li>
           </ol>
-          <h3>Workspace</h3>
+          <div class="workspaces">
+            <h3>Workspace</h3>
+            <img src="./src/assets/workspaces_black.svg" alt="" />
+          </div>
           <ol class="workspace">
             <li class="active">
-              <img src="./src/assets/sticky_note_2_black.svg" alt="" />Notes
+              <span>Notes</span>
             </li>
           </ol>
           <button>
-            <img src="./src/assets/add_circle_black.svg" alt="" />New
+            <img src="./src/assets/add_circle_black.svg" alt="" />
+            <span>New</span>
           </button>
         </nav>
       </div>
       <div class="Notes">
+        <h2 class="notes-title">Notes</h2>
         <div class="note note--primary">
           <h2 class="note-title">Books to buy</h2>
           <p class="note-text">
