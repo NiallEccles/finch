@@ -3,14 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UiModule } from './ui/ui.module';
+// import { reducers } from './app.reducers';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiModule,
+    // StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]
