@@ -1,10 +1,13 @@
-import NxWelcome from './nx-welcome';
+import Editor from './components/editor';
+import '@mantine/core/styles.css';
+import { MantineProvider } from '@mantine/core';
+
 
 export function App() {
   return (
-    <div>
-      <NxWelcome title="finch" />
-    </div>
+    <MantineProvider>
+      <Editor/>
+    </MantineProvider>
   );
 }
 
