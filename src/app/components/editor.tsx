@@ -12,7 +12,9 @@ export function Editor() {
           value={markdown}
           onChange={(event) => setMarkdown(event.currentTarget.value)}
         />
-      <Markdown>{markdown}</Markdown>
+      <div>
+        <Markdown>{markdown}</Markdown>
+      </div>
     </SimpleGrid>
   );
 }
