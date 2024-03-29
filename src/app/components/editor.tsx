@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import React from 'react';
 import { SimpleGrid } from '@mantine/core';
 import { Box, Card } from '@mantine/core';
 import MDEditor from '@uiw/react-md-editor';
-import exampleMarkdown from '../../exampleMarkdown';
 
+interface EditorProps {
+  markdown: string | undefined,
+  setMarkdown: React.Dispatch<React.SetStateAction<string | undefined>>
+}
 
-export function Editor() {
-  const [markdown, setMarkdown] = useState<string|undefined>(exampleMarkdown);
+export function Editor({markdown, setMarkdown} : EditorProps) {
 
   type previewType =
     "live" | "edit" | "preview";
@@ -14,7 +16,7 @@ export function Editor() {
   const preview: previewType = 'live';
 
   return (
-    <Box m="md" style={{height: '95dvh'}}>
+    <Box m="md" style={{height: '85dvh'}}>
       <SimpleGrid cols={1}>
         <div>
           <MDEditor
@@ -23,7 +25,7 @@ export function Editor() {
             preview={preview}
             hideToolbar={true}
             enableScroll={true}
-            height={'95dvh'}
+            height={'85dvh'}
           />
         </div>
       </SimpleGrid>
