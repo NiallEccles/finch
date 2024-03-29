@@ -20,7 +20,7 @@ export function Editor({markdown, setMarkdown} : EditorProps) {
       <SimpleGrid cols={1}>
         <div>
           <MDEditor
-            value={''}
+            value={markdown}
             onChange={setMarkdown}
             preview={preview}
             hideToolbar={true}

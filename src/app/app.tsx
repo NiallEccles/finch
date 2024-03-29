@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Editor from './components/editor';
 import '@mantine/core/styles.css';
 import { MantineProvider, AppShell, Burger, Group, Skeleton, Button } from '@mantine/core';
@@ -9,9 +9,11 @@ import exampleMarkdown from '../exampleMarkdown';
 export function App() {
   const [opened, { toggle }] = useDisclosure();
   const [markdown, setMarkdown] = useState<string|undefined>(exampleMarkdown);
+  const [handle, setHandle] = useState<FileSystemFileHandle>();
 
   const handleClick = async () => {
     const [fileHandle] = await window.showOpenFilePicker();
+    setHandle(fileHandle);
     const file = await fileHandle.getFile();
     const contents = await file.text();
     console.log(file);
@@ -33,6 +35,17 @@ export function App() {
     return handle;
   }
 
+  useEffect(() => {
+    const writeToFile = async () => {
+      if(handle && markdown) {
+        const writableStream = await handle.createWritable();
+        await writableStream.write(markdown);
+        await writableStream.close();
+      }
+    }
+    writeToFile();
+  }, [markdown]);
+
   return (
     <MantineProvider>
       <AppShell
@@ -47,13 +60,13 @@ export function App() {
         </AppShell.Header>
         <AppShell.Navbar p="md">
           Navbar
-          <Button variant="default" onClick={handleSave}>Create File</Button>
+          <Button mb={4} variant="default" onClick={handleSave}>Create File</Button>
+          <Button variant="default" onClick={handleClick}>Open File</Button>
           {Array(15)
             .fill(0)
             .map((_, index) => (
               <Skeleton key={index} h={28} mt="sm" animate={false} />
             ))}
-          <button onClick={handleClick}>Hello There</button>
         </AppShell.Navbar>
         <AppShell.Main>
           <Editor markdown={markdown} setMarkdown={setMarkdown} />
