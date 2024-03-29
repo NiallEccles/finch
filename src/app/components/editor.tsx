@@ -1,19 +1,33 @@
-import Markdown from 'react-markdown';
 import { useState } from 'react';
-import { Textarea } from '@mantine/core';
 import { SimpleGrid } from '@mantine/core';
+import { Box, Card } from '@mantine/core';
+import MDEditor from '@uiw/react-md-editor';
+import exampleMarkdown from '../../exampleMarkdown';
+
 
 export function Editor() {
-  const [markdown, setMarkdown] = useState('# Test');
+  const [markdown, setMarkdown] = useState<string|undefined>(exampleMarkdown);
+
+  type previewType =
+    "live" | "edit" | "preview";
+
+  const preview: previewType = 'live';
 
   return (
-    <SimpleGrid cols={2}>
-      <Textarea
-          value={markdown}
-          onChange={(event) => setMarkdown(event.currentTarget.value)}
-        />
-      <Markdown>{markdown}</Markdown>
-    </SimpleGrid>
+    <Box m="md" style={{height: '95dvh'}}>
+      <SimpleGrid cols={1}>
+        <div>
+          <MDEditor
+            value={markdown}
+            onChange={setMarkdown}
+            preview={preview}
+            hideToolbar={true}
+            enableScroll={true}
+            height={'95dvh'}
+          />
+        </div>
+      </SimpleGrid>
+    </Box>
   );
 }
 
