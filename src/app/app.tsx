@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Editor from './components/editor';
 import '@mantine/core/styles.css';
-import { MantineProvider, AppShell, Burger, Group, Skeleton } from '@mantine/core';
+import { MantineProvider, AppShell, Burger, Group, Skeleton, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import exampleMarkdown from '../exampleMarkdown';
 
@@ -18,6 +18,21 @@ export function App() {
     setMarkdown(contents);
   }
 
+  const handleSave = async () => {
+    const options: SaveFilePickerOptions = {
+      types: [
+        {
+          description: 'Markdown',
+          accept: {
+            'text/plain': ['.md'],
+          },
+        },
+      ],
+    };
+    const handle = await window.showSaveFilePicker(options);
+    return handle;
+  }
+
   return (
     <MantineProvider>
       <AppShell
@@ -32,6 +47,7 @@ export function App() {
         </AppShell.Header>
         <AppShell.Navbar p="md">
           Navbar
+          <Button variant="default" onClick={handleSave}>Create File</Button>
           {Array(15)
             .fill(0)
             .map((_, index) => (

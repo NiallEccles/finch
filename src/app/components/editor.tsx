@@ -20,12 +20,15 @@ export function Editor({markdown, setMarkdown} : EditorProps) {
       <SimpleGrid cols={1}>
         <div>
           <MDEditor
-            value={markdown}
+            value={''}
             onChange={setMarkdown}
             preview={preview}
             hideToolbar={true}
             enableScroll={true}
             height={'85dvh'}
+            textareaProps={{
+              placeholder: '# New Document'
+            }}
           />
         </div>
       </SimpleGrid>
