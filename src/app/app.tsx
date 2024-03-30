@@ -35,6 +35,18 @@ export function App() {
     return handle;
   }
 
+  const handleDirectoryPicker = () => {
+    const showDirectoryPicker = async () => {
+      const handle = await window.showDirectoryPicker();
+      for await (const [key, value] of handle.entries()) {
+        console.log({ key, value });
+      }
+      return handle;
+    }
+
+    showDirectoryPicker();
+  }
+
   useEffect(() => {
     const writeToFile = async () => {
       if(handle && markdown) {
@@ -60,6 +72,7 @@ export function App() {
         </AppShell.Header>
         <AppShell.Navbar p="md">
           Navbar
+          <Button mb={4} variant="default" onClick={handleDirectoryPicker}>Select Directory</Button>
           <Button mb={4} variant="default" onClick={handleSave}>Create File</Button>
           <Button variant="default" onClick={handleClick}>Open File</Button>
           {Array(15)
