@@ -4,6 +4,7 @@ import '@mantine/core/styles.css';
 import { MantineProvider, AppShell, Burger, Group, Skeleton, Button, NavLink } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import exampleMarkdown from '../exampleMarkdown';
+import { db } from '../db';
 
 type Files = {key: string, value: FileSystemFileHandle | FileSystemDirectoryHandle};
 
@@ -45,6 +46,7 @@ export function App() {
       for await (const [key, value] of handle.entries()) {
         console.log({ key, value });
         filesInDirectory.push({key, value});
+        db.file.add({key, value});
       }
       setFiles(filesInDirectory);
       return handle;
@@ -77,6 +79,12 @@ export function App() {
 
     openActive();
   }, [handle]);
+
+  useEffect(() => {
+    const getFiles = async () => await db.file.toArray();
+
+    getFiles().then((files) => setFiles(files));
+  }, []);
 
   return (
     <MantineProvider>
