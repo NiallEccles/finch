@@ -64,6 +64,20 @@ export function App() {
     writeToFile();
   }, [markdown]);
 
+  useEffect(() => {
+    const openActive = async () => {
+      if(handle){
+        const file: File = await handle.getFile() as File;
+        const contents = await file.text();
+        console.log(file);
+        setHandle(handle);
+        setMarkdown(contents);
+      }
+    }
+
+    openActive();
+  }, [handle]);
+
   return (
     <MantineProvider>
       <AppShell
@@ -97,7 +111,7 @@ export function App() {
                 description={item.value.name}
                 // rightSection={item.}
                 // leftSection={<item.icon size="1rem" stroke={1.5} />}
-                // onClick={() => setActive(index)}
+                onClick={() => setHandle(item.value as FileSystemFileHandle)}
               />
             ))
           }
