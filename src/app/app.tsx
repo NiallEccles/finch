@@ -43,10 +43,10 @@ export function App() {
     const showDirectoryPicker = async () => {
       const handle = await window.showDirectoryPicker();
       const filesInDirectory: Files[] = [];
+      db.directory.add({key: handle.name, value: handle});
       for await (const [key, value] of handle.entries()) {
         console.log({ key, value });
         filesInDirectory.push({key, value});
-        db.file.add({key, value});
       }
       setFiles(filesInDirectory);
       return handle;
@@ -80,10 +80,34 @@ export function App() {
     openActive();
   }, [handle]);
 
-  useEffect(() => {
-    const getFiles = async () => await db.file.toArray();
+  // useEffect(() => {
+  //   const getFiles = async () => await db.directory.toArray();
+  //   getFiles().then(d => console.log(d))
+  //
+  //   // getFiles().then((files) => setFiles(files));
+  // }, []);
 
-    getFiles().then((files) => setFiles(files));
+  useEffect(() => {
+    const getFiles = async () => {
+      // db.directory.add({key: handle.name, value: handle});
+      const filesInDirectory: Files[] = [];
+      // console.log();
+      db.directory.each(async ({value: directory})=> {
+        for await (const [key, value] of directory.entries()) {
+          console.log({ key, value });
+          filesInDirectory.push({key: value.name, value: value});
+        }
+        setFiles(filesInDirectory);
+      });
+    //   db.directory.toArray().then(async (directory) => {
+    //     for await (const [key, value] of directory.entries()) {
+    //       console.log({ key, value });
+    //       filesInDirectory.push({key: value.key, value: value.value});
+    //     }
+    //     setFiles(filesInDirectory);
+    //   })
+    }
+    getFiles();
   }, []);
 
   return (
