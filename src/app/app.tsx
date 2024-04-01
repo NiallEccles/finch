@@ -43,7 +43,7 @@ export function App() {
     const showDirectoryPicker = async () => {
       const handle = await window.showDirectoryPicker();
       const filesInDirectory: Files[] = [];
-      db.directory.add({key: handle.name, value: handle});
+      db.table('directory').put({id: handle.name, value: handle}, 1)
       for await (const [key, value] of handle.entries()) {
         console.log({ key, value });
         filesInDirectory.push({key, value});
