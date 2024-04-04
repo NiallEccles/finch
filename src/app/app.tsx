@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Editor from './components/editor';
 import '@mantine/core/styles.css';
-import { MantineProvider, AppShell, Burger, Group, Skeleton, Button, NavLink } from '@mantine/core';
+  import { MantineProvider, AppShell, Burger, Group, Skeleton, Button, NavLink } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import exampleMarkdown from '../exampleMarkdown';
 import { db } from '../db';
@@ -123,10 +123,9 @@ export function App() {
           </Group>
         </AppShell.Header>
         <AppShell.Navbar p="md">
-          Navbar
           <Button mb={4} variant="default" onClick={handleDirectoryPicker}>Select Directory</Button>
+          <Button mb={4} variant="default" onClick={handleClick}>Open File</Button>
           <Button mb={4} variant="default" onClick={handleSave}>Create File</Button>
-          <Button variant="default" onClick={handleClick}>Open File</Button>
           {/*{Array(15)*/}
           {/*  .fill(0)*/}
           {/*  .map((_, index) => (*/}
