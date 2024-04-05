@@ -1,6 +1,6 @@
-import React from 'react';
-import { SimpleGrid } from '@mantine/core';
-import { Box, Card } from '@mantine/core';
+import React, {useState} from 'react';
+import { Flex, SimpleGrid } from '@mantine/core';
+import { Box, SegmentedControl } from '@mantine/core';
 import MDEditor from '@uiw/react-md-editor';
 
 interface EditorProps {
@@ -8,24 +8,36 @@ interface EditorProps {
   setMarkdown: React.Dispatch<React.SetStateAction<string | undefined>>
 }
 
+type PreviewType =
+  "live" | "edit" | "preview";
+
 export function Editor({markdown, setMarkdown} : EditorProps) {
-
-  type previewType =
-    "live" | "edit" | "preview";
-
-  const preview: previewType = 'live';
+  const viewOptions: PreviewType[] = ['live', 'edit', 'preview'];
+  const [viewType, setViewType] = useState<PreviewType>('live');
 
   return (
-    <Box m="md" style={{height: '85dvh'}}>
+    <Box mx="md" mb="md" style={{ height: '80dvh' }}>
+      <Flex
+        justify="flex-end"
+        mb="md"
+      >
+        <SegmentedControl
+          color="gray"
+          data={viewOptions}
+          value={viewType}
+          onChange={(value)=>setViewType(value as PreviewType)}
+          className="capitalize"
+        />
+      </Flex>
       <SimpleGrid cols={1}>
         <div>
           <MDEditor
             value={markdown}
             onChange={setMarkdown}
-            preview={preview}
+            preview={viewType}
             hideToolbar={true}
             enableScroll={true}
-            height={'85dvh'}
+            height={'80dvh'}
             textareaProps={{
               placeholder: '# New Document'
             }}
