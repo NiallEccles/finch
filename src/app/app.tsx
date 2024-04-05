@@ -149,7 +149,7 @@ export function App() {
           }
         </AppShell.Navbar>
         <AppShell.Main>
-          <Editor markdown={markdown} setMarkdown={setMarkdown} />
+          <Editor currentlyOpenFileName={handle?.name} markdown={markdown} setMarkdown={setMarkdown} />
         </AppShell.Main>
       </AppShell>
     </MantineProvider>

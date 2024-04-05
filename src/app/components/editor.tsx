@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { Flex, SimpleGrid } from '@mantine/core';
+import { Flex, SimpleGrid, Title } from '@mantine/core';
 import { Box, SegmentedControl } from '@mantine/core';
 import MDEditor from '@uiw/react-md-editor';
 
 interface EditorProps {
+  currentlyOpenFileName: string | undefined,
   markdown: string | undefined,
   setMarkdown: React.Dispatch<React.SetStateAction<string | undefined>>
 }
@@ -11,16 +12,19 @@ interface EditorProps {
 type PreviewType =
   "live" | "edit" | "preview";
 
-export function Editor({markdown, setMarkdown} : EditorProps) {
+export function Editor({currentlyOpenFileName, markdown, setMarkdown} : EditorProps) {
   const viewOptions: PreviewType[] = ['live', 'edit', 'preview'];
   const [viewType, setViewType] = useState<PreviewType>('live');
 
   return (
     <Box mx="md" mb="md" style={{ height: '80dvh' }}>
       <Flex
-        justify="flex-end"
+        justify="space-between"
         mb="md"
       >
+        <Title order={2}>
+          {currentlyOpenFileName}
+        </Title>
         <SegmentedControl
           color="gray"
           data={viewOptions}
